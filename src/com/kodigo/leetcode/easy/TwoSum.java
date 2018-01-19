@@ -13,21 +13,26 @@ import java.util.Map;
 
 public class TwoSum {
 
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-
-
-
-
-
-        return null;
+    /**
+     * n^2 implementation of two sum
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] solution1(int[] nums, int target) {
+        for(int i = 0; i < nums.length - 1; i++) {
+            int diff = target - nums[i];
+            for(int j = i + 1 ; j < nums.length; i++) {
+                if(nums[j] == diff) return new int[]{i,j};
+            }
+        }
+        return new int[]{-1,-1};
     }
 
     @Test
     public void testSolution(){
-
-        Assert.assertArrayEquals(new int[]{0,1}, twoSum(new int[]{2,7,11,15}, 9));
-        Assert.assertArrayEquals(new int[]{0,1}, twoSum(new int[]{3,3}, 6));
+        Assert.assertArrayEquals(new int[]{0,1}, solution1(new int[]{2,7,11,15}, 9));
+        Assert.assertArrayEquals(new int[]{0,1}, solution1(new int[]{3,3}, 6));
     }
 
 
